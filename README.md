@@ -1,4 +1,4 @@
-# WordPress manual Pingbacks Plugin
+# WordPress Manual Pingbacks Plugin
 **Version:** 1.1
 **Last Updated:** 09 Sep 2014
 
