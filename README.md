@@ -1,4 +1,4 @@
-# WordPress Comment Referrer Plugin
+# WordPress manual Pingbacks Plugin
 **Version:** 1.1
 **Last Updated:** 09 Sep 2014
 
@@ -6,7 +6,7 @@
 - https://wordpress.org/plugins/add-pingbacks/
 
 ## Description
-This WordPress plugin adds an options page in the **Comments** menu, allowing administrators to easily configure referral links associated with specific posts or pages on the site. With this plugin, you can select the post or page where the referral link will appear, add the referring site's name and URL, and paste the specific part of the link to be displayed.
+This WordPress plugin adds an options page in the **Comments** menu, allowing administrators to easily configure referral links aka **Pingbacks** associated with specific posts or pages on the site. With this plugin, you can select the post or page where the referral link will appear, add the referring site's name and URL, and paste the specific part of the link to be displayed.
 
 ## Key Features
 - Easy setup through the WordPress **Comments** menu.
