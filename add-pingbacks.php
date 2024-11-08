@@ -2,7 +2,7 @@
 /*
 Plugin Name: Add Pingbacks
 Plugin URI: https://github.com/simonquasar/add-pingbacks/
-Description: Manually add Pingbacks to a Post or a Page
+Description: Manually add a Pingback to any post.
 Version: 1.2
 Author: simonquasar
 Author URI: http://simonquasar.net
@@ -31,7 +31,7 @@ function add_pingbacks_validate_input($input) {
 }
 
 function add_pingbacks_options_link() {
-    add_menu_page('Add Pingbacks', 'Add Pingbacks', 'manage_options', 'addPingbacks', 'add_pingbacks_options_page', 'dashicons-admin-comments');
+    add_submenu_page('edit-comments.php', 'Add Pingbacks', 'Add Pingbacks', 'manage_options', 'addPingbacks', 'add_pingbacks_options_page', 'dashicons-admin-comments');
 }
 
 function get_post_types_dropdown() {
@@ -45,6 +45,7 @@ function get_post_types_dropdown() {
 
 function add_post_select_box() {
     echo '<select name="post_type" id="post_type" onchange="fetchPosts(this.value)">';
+    echo '<option value="post">Posts</option>';
     echo get_post_types_dropdown();
     echo '</select>';
 
