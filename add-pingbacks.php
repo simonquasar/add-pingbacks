@@ -45,7 +45,7 @@ function get_post_types_dropdown() {
 
 function add_post_select_box() {
     echo '<select name="post_type" id="post_type" onchange="fetchPosts(this.value)">';
-    echo '<option value="post">Posts</option>';
+    echo '<option value="">- select Post type -</option>';
     echo get_post_types_dropdown();
     echo '</select>';
 
