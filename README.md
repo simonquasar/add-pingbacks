@@ -1,6 +1,6 @@
-# WordPress Manual Pingbacks Plugin
-**Version:** 1.1
-**Last Updated:** 09 Sep 2014
+# WordPress Manual Pingbacks Plugin // BETA dev
+**Version:** 1.2
+**Last Updated:** 08 Nov 2024
 
 ### Plugin URL
 - https://wordpress.org/plugins/add-pingbacks/
@@ -27,4 +27,4 @@ This WordPress plugin adds an options page in the **Comments** menu, allowing ad
 
 ## Requirements
 - WordPress 2.8 or higher
-- Tested up to 4.0.38 (at least)
+- Tested up to 6.6.2 (at least)

@@ -1,155 +1,201 @@
 <?php
 /*
-Plugin Name: Add Pingbacks
-Plugin URI: http://simonquasar.net/add-pingbacks
-Description: Manually add Pingbacks to a Post or a Page
-Version: 1.1
-Author: simonquasar
-Author URI: http://simonquasar.net
-License: GPLv2 
-Copyright 2014 Simon Pilati (http://simonquasar.net)
+ * Plugin Name:       Add Pingbacks
+ * Plugin URI:        https://simonquasar.net/add-pingbacks
+ * Description:       Manually add a Pingback to any post.
+ * Version:           1.2
+ * Requires at least: 2.8
+ * Requires PHP:      7.2
+ * Author:            simonquasar
+ * Author URI:        https://simonquasar.net/
+ * License:           GPL v2 or later
+ * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+ * Update URI:        https://github.com/simonquasar/add-pingbacks
+ * Text Domain:       add-pingbacks
 */
 
-function addPingbacks_set_plugin_meta( $links, $file ) { 
-	$plugin_base = plugin_basename(__FILE__);
-    if ( $file == $plugin_base ) {
-		$newlinks = array( '<a href="options-general.php?page=addPingbacks">Add Pingback</a>' ); 
-		return array_merge( $links, $newlinks );
-	}
-	return $links;
-}
+defined('ABSPATH') || exit;
 
-function addPingbacks_options_init() { 
-	register_setting( 'addPingbacks-group', 'addPingbacks-options', 'addPingbacks_validate_input' );
-}
-
-function addPingbacks_validate_input( $input ) {
-	return $input;
-}
-
-function addPingbacks_options_link() { 
-	add_comments_page( 'Add Pingbacks', 'Add Pingbacks', 'manage_options', 'addPingbacks', 'addPingbacks_options_page' );
-}
- 
-function addPingback_select_box( $posttype ) {
-	
-	if( $posttype == 'page' )
-		$args = array( 
-            'numberposts'	=>	'9000',
-			'post_type'		=>	'page',
-			'post_status'	=>	'all' );
-	
-    else
-        $args = array( 
-            'numberposts'	=>	'9000',
-            'post_type'		=>	'post',
-            'post_status'	=>	'all' );
-	
-	$items = get_posts( $args );
-	
-	echo '<select name="' . $posttype . 's_list" id="' . $posttype . '">';
-	
-	foreach( $items as $item )
-		echo '<option value="' . $item->ID . '">' . apply_filters('the_title',$item->post_title) . '</option>';
-        
-}
-
-function addPingback_text_box( $label, $name, $default=NULL ) { ?>
-					<tr>
-						<td><label for="<?php echo $name ?>"><?php echo $label ?></label></th>
-						<td colspan="2"><input type="text" name="<?php echo $name ?>" id="<?php echo $name ?>" value="<?php echo $default; ?>"/></td>
-					</tr>
-<?php 
-}
-
-function addPingbacks_add_comments( $id, $author, $email, $url, $ip, $comment ) {
-						
-	if( empty( $comment ) ) { return false;} 
-    else {
-    wp_insert_comment( array(
-    'comment_post_ID' => $id,
-    'comment_author' => $author,
-    'comment_author_email' => $email,
-    'comment_author_url' => $url,
-    'comment_content' => $comment,
-    'comment_type' => 'pingback',
-    'comment_parent' => 0,
-    'user_id' => '',
-    'comment_author_IP' => $ip,
-    'comment_agent' => 'Add Pingbacks Plugin',
-    'comment_date' => current_time( 'mysql' ),
-    'comment_approved' => 1 ) );
-	return true;
+function add_pingbacks_set_plugin_meta($links, $file) {
+    $plugin_base = plugin_basename(__FILE__);
+    if ($file === $plugin_base) {
+        $new_links = [
+            '<a href="options-general.php?page=addPingbacks">' . esc_html__('Add Pingback', 'addPingbacks') . '</a>'
+        ];
+        return array_merge($links, $new_links);
     }
+    return $links;
 }
 
-function addPingbacks_options_page() { 
-	
-	if( $_POST['action'] == 'addpingback' ) {
-		echo '<div class="updated settings-error">';
-		$id = ( $_POST['post_or_page'] == 'page' ? $_POST['pages_list'] : $_POST['posts_list'] );
-		$author = ( isset( $_POST['author_name'] ) ? $_POST['author_name'] : 'anonymous' );
-		$email = ( isset( $_POST['author_email'] ) ? $_POST['author_email'] : get_bloginfo('admin_email' ) );
-		$url = ( isset( $_POST['author_url'] ) ? $_POST['author_url'] : '' );
-		$ip = ( isset( $_POST['author_ip'] ) ? $_POST['author_ip'] : '127.0.0.1' );
-		echo addPingbacks_add_comments( $id, $author, $email, $url, $ip, $_POST['comment'] ) 
-		. ' Pingback added to ' . get_the_title( $id ) . '</div>';
-	} ?>
+function add_pingbacks_options_init() {
+    register_setting('addPingbacks-group', 'addPingbacks-options', 'add_pingbacks_validate_input');
+}
 
-	<div class="wrap">
-    	<div class="icon32" id="icon-options-general"><br /></div>
-		<h2>Add Pingback URLs</h2>
-		<span class="description">Select a Post or a Page, then add the referral URL which points to your content. Play fair. ;)<br/>
-        Plugin by <a href="http://simonquasar.net" target="_blank" title="simonquasar">simonquasar</a></span>
-		<form method="post" action="">
-			
-			<table class="form-table">
-				<tbody>
-					<tr>
-                    <th colspan="3" style="font-size:1.3em">Where to add?</th></tr>
-                    
-					<tr>
-						<td style="width: 150px;"><strong>Post</strong></td>
-						<td><input type="radio" name="post_or_page" value="post" id="post" checked="checked" /><?php addPingback_select_box( 'post' ); ?></td>
-					</tr>
-                    
-					<tr>
-						<td><strong>Page</strong></td>
-						<td><input type="radio" name="post_or_page" value="page" id="page" /><?php addPingback_select_box( 'page' ); ?></td>
-					</tr>
-                    
-					<tr>
-                    <th colspan="3" style="font-size:1.3em">Referrer link</th></tr>
-					
-					<?php 
-					$authors = array(
-						array( 'name' => 'author_name', 'label' => 'Site Title / Page Name', 'default' => '' ),
-						array( 'name' => 'author_url', 'label' => 'Link', 'default' => 'http://' ) ); 
-						
-					foreach( $authors as $author )
-						addPingback_text_box( $author['label'], $author['name'], $author['default'] );
-					?>
-					
-					<tr>
-						<th colspan="2" style="font-size:1.3em">Excerpt / Content</th>
-					</tr>
-					<tr>
-						<td colspan="3"><textarea name="comment" id="comment" cols="120" rows="5">[...] cit. [...]</textarea></td>
-					</tr>
-                    
-				</tbody>
-			</table>
-            
-			<p class="submit">
-				<input type="hidden" name="action" value="addpingback" />
-				<input type="submit" class="button-primary" value="Add Link Reference" />
-			</p>
-            
-		</form>
-	</div>
-<?php } 
+function add_pingbacks_validate_input($input) {
+    return sanitize_text_field($input);
+}
 
-add_filter( 'plugin_row_meta', 'addPingbacks_set_plugin_meta', 10, 2 );
-add_action( 'admin_init', 'addPingbacks_options_init' );
-add_action( 'admin_menu', 'addPingbacks_options_link' );
+function add_pingbacks_options_link() {
+    add_submenu_page('edit-comments.php', 'Add Pingbacks', 'Add Pingbacks', 'manage_options', 'addPingbacks', 'add_pingbacks_options_page', 'dashicons-admin-comments');
+}
+
+function get_post_types_dropdown() {
+    $post_types = get_post_types(array('public' => true), 'objects');
+    $options = '';
+    foreach ($post_types as $post_type) {
+        $options .= '<option value="' . esc_attr($post_type->name) . '">' . esc_html($post_type->label) . '</option>';
+    }
+    return $options;
+}
+
+function add_post_select_box() {
+    echo '<select name="post_type" id="post_type" onchange="fetchPosts(this.value)">';
+    echo '<option value="">- select Post type -</option>';
+    echo get_post_types_dropdown();
+    echo '</select>';
+
+    echo '<select name="post_list" id="post_list" style="display:none;"></select>';
+}
+
+function add_pingback_text_box($label, $name, $default = '') {
+    ?>
+    <tr>
+        <td><label for="<?php echo esc_attr($name); ?>"><?php echo esc_html($label); ?></label></td>
+        <td colspan="2"><input type="text" name="<?php echo esc_attr($name); ?>" id="<?php echo esc_attr($name); ?>" value="<?php echo esc_attr($default); ?>"/></td>
+    </tr>
+    <?php
+}
+
+function add_pingbacks_add_comment($post_id, $author, $email, $url, $ip, $comment) {
+    if (empty($comment)) {
+        return new WP_Error('empty_comment', __('Comment cannot be empty', 'addPingbacks'));
+    }
+
+    return wp_insert_comment([
+        'comment_post_ID' => $post_id,
+        'comment_author' => $author,
+        'comment_author_email' => $email,
+        'comment_author_url' => $url,
+        'comment_content' => $comment,
+        'comment_type' => 'pingback',
+        'comment_parent' => 0,
+        'comment_author_IP' => $ip,
+        'comment_agent' => 'Add Pingbacks Plugin',
+        'comment_date' => current_time('mysql'),
+        'comment_approved' => 1
+    ]);
+}
+
+function add_pingbacks_options_page() {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'addpingback') {
+        $post_id = intval($_POST['post_list']);
+        $author = !empty($_POST['author_name']) ? sanitize_text_field($_POST['author_name']) : __('anonymous', 'addPingbacks');
+        $email = !empty($_POST['author_email']) ? sanitize_email($_POST['author_email']) : get_bloginfo('admin_email');
+        $url = !empty($_POST['author_url']) ? esc_url($_POST['author_url']) : '';
+        $ip = !empty($_POST['author_ip']) ? sanitize_text_field($_POST['author_ip']) : '127.0.0.1';
+
+        $result = add_pingbacks_add_comment($post_id, $author, $email, $url, $ip, sanitize_textarea_field($_POST['comment']));
+        $message = is_wp_error($result) ? $result->get_error_message() : sprintf(__('Pingback added to %s', 'addPingbacks'), esc_html(get_the_title($post_id)));
+
+        echo '<div class="updated settings-error"><p>' . esc_html($message) . '</p></div>';
+    }
+    ?>
+
+    <div class="wrap">
+        <h2><?php esc_html_e('Add Pingback URLs', 'addPingbacks'); ?></h2>
+        <span class="description">
+            <?php esc_html_e('Select a Post Type and a corresponding Post, then add the referral URL which points to your content. Play fair. ;)', 'addPingbacks'); ?><br/>
+            <?php printf(__('Plugin by <a href="%s" target="_blank" title="%s">%s</a>', 'addPingbacks'), esc_url('http://simonquasar.net'), esc_attr__('simonquasar', 'addPingbacks'), esc_html__('simonquasar', 'addPingbacks')); ?>
+        </span>
+
+        <form method="post" action="">
+            <table class="form-table">
+                <tbody>
+                    <tr>
+                        <th colspan="3" style="font-size:1.3em"><?php esc_html_e('Select Post Type', 'addPingbacks'); ?></th>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong><?php esc_html_e('Post Type', 'addPingbacks'); ?></strong><br/><?php esc_html_e('Post Title:', 'addPingbacks'); ?></td>
+                        <td><?php add_post_select_box(); ?></td>
+                    </tr>
+
+                    <tr>
+                        <th colspan="3" style="font-size:1.3em"><?php esc_html_e('Referrer link', 'addPingbacks'); ?></th>
+                    </tr>
+                    
+                    <?php 
+                    $authors = [
+                        ['name' => 'author_name', 'label' => __('Site Title / Page Name', 'addPingbacks'), 'default' => ''],
+                        ['name' => 'author_url', 'label' => __('Link', 'addPingbacks'), 'default' => 'http://']
+                    ];
+
+                    foreach ($authors as $author) {
+                        add_pingback_text_box($author['label'], $author['name'], $author['default']);
+                    }
+                    ?>
+
+                    <tr>
+                        <th colspan="2" style="font-size:1.3em"><?php esc_html_e('Excerpt / Content', 'addPingbacks'); ?></th>
+                    </tr>
+                    <tr>
+                        <td colspan="3"><textarea name="comment" id="comment" cols="120" rows="5">[...] cit. [...]</textarea></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p class="submit">
+                <input type="hidden" name="action" value="addpingback" />
+                <input type="submit" class="button-primary" value="<?php esc_attr_e('Add Link Reference', 'addPingbacks'); ?>" />
+            </p>
+        </form>
+    </div>
+
+    <script>
+        function fetchPosts(postType) {
+            var postList = document.getElementById('post_list');
+            if (!postType) {
+                postList.style.display = 'none';
+                return;
+            }
+
+            fetch('<?php echo admin_url('admin-ajax.php'); ?>?action=fetch_posts&post_type=' + postType)
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function(data) {
+                    var options = '';
+                    data.forEach(function(post) {
+                        options += '<option value="' + post.ID + '">' + post.title + '</option>';
+                    });
+                    postList.innerHTML = options;
+                    postList.style.display = 'block';
+                });
+        }
+    </script>
+    <?php
+}
+
+add_action('wp_ajax_fetch_posts', function() {
+    $post_type = !empty($_GET['post_type']) ? sanitize_text_field($_GET['post_type']) : '';
+    $posts = get_posts([
+        'post_type' => $post_type,
+        'numberposts' => -1,
+        'post_status' => 'publish',
+    ]);
+
+    $response = [];
+    foreach ($posts as $post) {
+        $response[] = [
+            'ID' => $post->ID,
+            'title' => get_the_title($post->ID),
+        ];
+    }
+    
+    wp_send_json($response);
+});
+
+add_filter('plugin_row_meta', 'add_pingbacks_set_plugin_meta', 10, 2);
+add_action('admin_init', 'add_pingbacks_options_init');
+add_action('admin_menu', 'add_pingbacks_options_link');
 ?>
