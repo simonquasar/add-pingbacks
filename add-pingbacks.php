@@ -1,14 +1,19 @@
 <?php
 /*
-Plugin Name: Add Pingbacks
-Plugin URI: https://github.com/simonquasar/add-pingbacks/
-Description: Manually add a Pingback to any post.
-Version: 1.2
-Author: simonquasar
-Author URI: http://simonquasar.net
-License: GPLv2 
-Copyright 2024 Simon Pilati (http://simonquasar.net)
+ * Plugin Name:       Add Pingbacks
+ * Plugin URI:        https://simonquasar.net/add-pingbacks
+ * Description:       Manually add a Pingback to any post.
+ * Version:           1.2
+ * Requires at least: 2.0
+ * Requires PHP:      7.2
+ * Author:            simonquasar
+ * Author URI:        https://simonquasar.net/
+ * License:           GPL v2 or later
+ * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+ * Update URI:        https://github.com/simonquasar/add-pingbacks
+ * Text Domain:       add-pingbacks
 */
+
 defined('ABSPATH') || exit;
 
 function add_pingbacks_set_plugin_meta($links, $file) {
