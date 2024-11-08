@@ -4,7 +4,7 @@
  * Plugin URI:        https://simonquasar.net/add-pingbacks
  * Description:       Manually add a Pingback to any post.
  * Version:           1.2
- * Requires at least: 2.0
+ * Requires at least: 2.8
  * Requires PHP:      7.2
  * Author:            simonquasar
  * Author URI:        https://simonquasar.net/
