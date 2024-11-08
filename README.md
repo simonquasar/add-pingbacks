@@ -27,4 +27,4 @@ This WordPress plugin adds an options page in the **Comments** menu, allowing ad
 
 ## Requirements
 - WordPress 2.8 or higher
-- Tested up to 6.0 (at least)
+- Tested up to 6.6.2 (at least)
