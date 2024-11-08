@@ -111,7 +111,7 @@ function add_pingbacks_options_page() {
                     </tr>
                     
                     <tr>
-                        <td><strong><?php esc_html_e('Post Type', 'addPingbacks'); ?></strong></td>
+                        <td><strong><?php esc_html_e('Post Type', 'addPingbacks'); ?></strong><br/><?php esc_html_e('Post Title:', 'addPingbacks'); ?></td>
                         <td><?php add_post_select_box(); ?></td>
                     </tr>
 
