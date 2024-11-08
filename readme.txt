@@ -2,17 +2,17 @@
 Contributors: simonquasar
 Tags: add pingbacks, pingback, manual pingbacks, comments, manual, add comments
 Requires at least: 2.8
-Tested up to: 4.0
+Tested up to: 6.0
 Stable tag: 1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Manually add a Pingback to a post or page.
+Manually add a Pingback to a post, page or any custom post.
 
 == Description ==
 
 Adds an options page in the Comments menu. 
-You select on which Post/Page the referring Link should appear, add the Site name and URL, then paste the referring part.
+You select on which Post the referring Link should appear, add the Site name and URL, then paste the referring part.
 
 == Installation ==
 
