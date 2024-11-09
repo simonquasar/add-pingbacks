@@ -3,7 +3,7 @@
  * Plugin Name:       Add Pingbacks
  * Plugin URI:        https://simonquasar.net/add-pingbacks
  * Description:       Manually add a Pingback to any post.
- * Version:           1.2
+ * Version:           1.2.1
  * Requires at least: 2.8
  * Requires PHP:      7.2
  * Author:            simonquasar
