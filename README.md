@@ -1,4 +1,4 @@
-# WordPress Manual Pingbacks Plugin // BETA dev
+# WordPress Manual Pingbacks Plugin
 **Version:** 1.2
 **Last Updated:** 08 Nov 2024
 
