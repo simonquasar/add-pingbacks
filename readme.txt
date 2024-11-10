@@ -1,7 +1,7 @@
 ﻿=== Plugin Name ===
 Contributors: simonquasar
 Tags: add pingbacks, pingback, manual pingbacks, comments, manual, add comments
-Requires at least: 2.8
+Requires at least: 5.0
 Tested up to: 6.6.2
 Stable tag: 1.2
 License: GPLv2 or later

@@ -4,8 +4,8 @@
  * Plugin URI:        https://simonquasar.net/add-pingbacks
  * Description:       Manually add a Pingback to any post.
  * Version:           1.2
- * Requires at least: 2.8
- * Requires PHP:      7.2
+ * Requires at least: 5.0
+ * Requires PHP:      7.4
  * Author:            simonquasar
  * Author URI:        https://simonquasar.net/
  * License:           GPL v2 or later
@@ -37,6 +37,26 @@ function add_pingbacks_validate_input($input) {
 
 function add_pingbacks_options_link() {
     add_submenu_page('edit-comments.php', 'Add Pingbacks', 'Add Pingbacks', 'manage_options', 'addPingbacks', 'add_pingbacks_options_page', 'dashicons-admin-comments');
+}
+
+function add_pingbacks_enqueue_scripts($hook) {
+    if ('comments_page_addPingbacks' !== $hook) {
+        return;
+    }
+    
+    wp_enqueue_script(
+        'add-pingbacks-js',
+        plugins_url('add-pingbacks.js', __FILE__),
+        array('jquery'),
+        '1.0.0',
+        true
+    );
+
+    wp_localize_script(
+        'add-pingbacks-js',
+        'wpApiSettings',
+        array('ajaxUrl' => admin_url('admin-ajax.php'))
+    );
 }
 
 function get_post_types_dropdown() {
@@ -150,29 +170,6 @@ function add_pingbacks_options_page() {
             </p>
         </form>
     </div>
-
-    <script>
-        function fetchPosts(postType) {
-            var postList = document.getElementById('post_list');
-            if (!postType) {
-                postList.style.display = 'none';
-                return;
-            }
-
-            fetch('<?php echo admin_url('admin-ajax.php'); ?>?action=fetch_posts&post_type=' + postType)
-                .then(function(response) {
-                    return response.json();
-                })
-                .then(function(data) {
-                    var options = '';
-                    data.forEach(function(post) {
-                        options += '<option value="' + post.ID + '">' + post.title + '</option>';
-                    });
-                    postList.innerHTML = options;
-                    postList.style.display = 'block';
-                });
-        }
-    </script>
     <?php
 }
 
@@ -198,4 +195,5 @@ add_action('wp_ajax_fetch_posts', function() {
 add_filter('plugin_row_meta', 'add_pingbacks_set_plugin_meta', 10, 2);
 add_action('admin_init', 'add_pingbacks_options_init');
 add_action('admin_menu', 'add_pingbacks_options_link');
+add_action('admin_enqueue_scripts', 'add_pingbacks_enqueue_scripts');
 ?>

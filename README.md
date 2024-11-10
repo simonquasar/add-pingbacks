@@ -1,6 +1,6 @@
 # WordPress Manual Pingbacks Plugin
 **Version:** 1.2
-**Last Updated:** 08 Nov 2024
+**Last Updated:** 11 Nov 2024
 
 ### Plugin URL
 - https://wordpress.org/plugins/add-pingbacks/
@@ -26,5 +26,5 @@ This WordPress plugin adds an options page in the **Comments** menu, allowing ad
 4. Save your settings, and the referral link will appear on the selected post/page.
 
 ## Requirements
-- WordPress 2.8 or higher
-- Tested up to 6.6.2 (at least)
+- WordPress 5.0 or higher
+- Tested up to 6.6.2
