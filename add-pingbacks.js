@@ -15,7 +15,7 @@ function fetchPosts(postType) {
             post_type: postType
         },
         success: function (response) {
-            postList.innerHTML = ''; // Clear existing options
+            postList.innerHTML = '';
             response.forEach(function (post) {
                 const option = document.createElement('option');
                 option.value = post.ID;
