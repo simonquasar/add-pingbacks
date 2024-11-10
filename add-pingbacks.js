@@ -1,26 +1,30 @@
 function fetchPosts(postType) {
-    var postList = document.getElementById('post_list');
     if (!postType) {
-        postList.style.display = 'none';
+        document.getElementById('post_list').style.display = 'none';
         return;
     }
 
-    // Using wpApiSettings.ajaxUrl which will be localized
-    fetch(wpApiSettings.ajaxUrl + '?action=fetch_posts&post_type=' + postType)
-        .then(function(response) {
-            return response.json();
-        })
-        .then(function(data) {
-            var options = '';
-            data.forEach(function(post) {
-                options += '<option value="' + post.ID + '">' + post.title + '</option>';
+    const postList = document.getElementById('post_list');
+    postList.style.display = 'block';
+
+    jQuery.ajax({
+        url: wpApiSettings.ajaxUrl,
+        type: 'GET',
+        data: {
+            action: 'fetch_posts',
+            post_type: postType
+        },
+        success: function (response) {
+            postList.innerHTML = ''; // Clear existing options
+            response.forEach(function (post) {
+                const option = document.createElement('option');
+                option.value = post.ID;
+                option.textContent = post.title;
+                postList.appendChild(option);
             });
-            postList.innerHTML = options;
-            postList.style.display = 'block';
-        })
-        .catch(function(error) {
+        },
+        error: function (error) {
             console.error('Error fetching posts:', error);
-            postList.innerHTML = '<option value="">Error loading posts</option>';
-            postList.style.display = 'block';
-        });
+        }
+    });
 }
