@@ -1,7 +1,7 @@
 <?php
 /*
  * Plugin Name:       Add Pingbacks
- * Plugin URI:        https://github.com/simonquasar/add-pingbacks/
+ * Plugin URI:        https://github.com/simonquasar/add-pingbacks
  * Description:       Manually add a Pingback to any post.
  * Version:           1.2.1
  * Requires at least: 5.0
@@ -19,7 +19,7 @@ function add_pingbacks_set_plugin_meta($links, $file) {
     $plugin_base = plugin_basename(__FILE__);
     if ($file === $plugin_base) {
         $new_links = [
-           '<a href="edit-comments.php?page=addPingbacks">' . esc_html__('Add Pingback', 'addPingbacks') . '</a>'
+            '<a href="options-general.php?page=addPingbacks">' . esc_html__('Add Pingback', 'addPingbacks') . '</a>'
         ];
         return array_merge($links, $new_links);
     }
@@ -39,9 +39,9 @@ function add_pingbacks_options_link() {
 }
 
 function add_pingbacks_enqueue_scripts($hook) {
-    if ('edit-comments_page_addPingbacks' !== $hook) {
+    if ('comments_page_addPingbacks' !== $hook) {
         return;
-    }    
+    }
     
     wp_enqueue_script(
         'add-pingbacks-js',
@@ -124,7 +124,7 @@ function add_pingbacks_options_page() {
         <h2><?php esc_html_e('Add Pingback URLs', 'addPingbacks'); ?></h2>
         <span class="description">
             <?php esc_html_e('Select a Post Type and a corresponding Post, then add the referral URL which points to your content. Play fair. ;)', 'addPingbacks'); ?><br/>
-            <?php printf(__('Plugin by <a href="%s" target="_blank" title="%s">%s</a>', 'addPingbacks'), esc_url('https://simonquasar.net'), esc_attr__('simonquasar', 'addPingbacks'), esc_html__('simonquasar', 'addPingbacks')); ?>
+            <?php printf(__('<small>by <a href="%s" target="_blank" title="%s">%s</a></small>', 'addPingbacks'), esc_url('https://www.simonquasar.net'), esc_attr__('simonquasar', 'addPingbacks'), esc_html__('simonquasar', 'addPingbacks')); ?>
         </span>
 
         <form method="post" action="">
@@ -135,8 +135,14 @@ function add_pingbacks_options_page() {
                     </tr>
                     
                     <tr>
-                        <td><strong><?php esc_html_e('Post Type', 'addPingbacks'); ?></strong><br/><?php esc_html_e('Post Title:', 'addPingbacks'); ?></td>
-                        <td><?php add_post_select_box(); ?></td>
+                        <td>
+                            <strong><?php esc_html_e('Post Type', 'addPingbacks'); ?></strong>
+                            <br/>
+                            <br/><?php esc_html_e('Post Title:', 'addPingbacks'); ?>
+                        </td>
+                        <td>
+                            <?php add_post_select_box(); ?>
+                        </td>
                     </tr>
 
                     <tr>
@@ -158,10 +164,10 @@ function add_pingbacks_options_page() {
                         <th colspan="2" style="font-size:1.3em"><?php esc_html_e('Excerpt / Content', 'addPingbacks'); ?></th>
                     </tr>
                     <tr>
-                        <td colspan="3"><textarea name="comment" id="comment" cols="120" rows="5">[...] cit. [...]</textarea></td>
+                        <td colspan="3"><textarea name="comment" id="comment" cols="120" rows="5" placeholder="[...] Lorem Ipsum cit."></textarea></td>
                     </tr>
                 </tbody>
-            </table>
+            </table> 
 
             <p class="submit">
                 <input type="hidden" name="action" value="addpingback" />
