@@ -3,6 +3,7 @@
 **Last Updated:** 01 Feb 2025
 
 ![WordPress Plugin Version](https://img.shields.io/wordpress/plugin/v/add-pingbacks)
+![WordPress Plugin Last Updated](https://img.shields.io/wordpress/plugin/last-updated/add-pingbacks)
 ![WordPress Plugin: Tested WP Version](https://img.shields.io/wordpress/plugin/tested/add-pingbacks)
 ![WordPress Plugin Downloads](https://img.shields.io/wordpress/plugin/dm/add-pingbacks)
 
