@@ -1,6 +1,6 @@
 # WordPress Manual Pingbacks Plugin
 **Version:** 1.2
-**Last Updated:** 11 Nov 2024
+**Last Updated:** 01 Feb 2025
 
 ### Plugin URL
 - https://wordpress.org/plugins/add-pingbacks/
