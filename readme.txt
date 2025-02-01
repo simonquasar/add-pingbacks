@@ -46,7 +46,7 @@ Add Pingbacks is a WordPress plugin that allows you to manually create pingbacks
 = 1.2 =
 * Added support for all public post types
 * Dynamic post loading
-* Dta sanitization
+* Data sanitization
 
 = 1.1 =
 * Initial public release
