@@ -19,7 +19,7 @@ function add_pingbacks_set_plugin_meta($links, $file) {
     $plugin_base = plugin_basename(__FILE__);
     if ($file === $plugin_base) {
         $new_links = [
-            '<a href="options-general.php?page=addPingbacks">' . esc_html__('Add Pingback', 'addPingbacks') . '</a>'
+           '<a href="edit-comments.php?page=addPingbacks">' . esc_html__('Add Pingback', 'addPingbacks') . '</a>'
         ];
         return array_merge($links, $new_links);
     }
@@ -54,8 +54,12 @@ function add_pingbacks_enqueue_scripts($hook) {
     wp_localize_script(
         'add-pingbacks-js',
         'wpApiSettings',
-        array('ajaxUrl' => admin_url('admin-ajax.php'))
-    );
+        array(
+            'ajaxUrl' => admin_url('admin-ajax.php'),
+            'nonce' => wp_create_nonce('add_pingbacks_nonce')
+        )
+    );    
+    
 }
 
 function get_post_types_dropdown() {
@@ -195,4 +199,24 @@ add_filter('plugin_row_meta', 'add_pingbacks_set_plugin_meta', 10, 2);
 add_action('admin_init', 'add_pingbacks_options_init');
 add_action('admin_menu', 'add_pingbacks_options_link');
 add_action('admin_enqueue_scripts', 'add_pingbacks_enqueue_scripts');
+add_action('wp_ajax_fetch_posts', function() {
+    check_ajax_referer('add_pingbacks_nonce', 'nonce');
+    
+    $post_type = !empty($_GET['post_type']) ? sanitize_text_field($_GET['post_type']) : '';
+    $posts = get_posts([
+        'post_type' => $post_type,
+        'numberposts' => -1,
+        'post_status' => 'publish',
+    ]);
+
+    $response = [];
+    foreach ($posts as $post) {
+        $response[] = [
+            'ID' => $post->ID,
+            'title' => get_the_title($post->ID),
+        ];
+    }
+    
+    wp_send_json($response);
+});
 ?>
