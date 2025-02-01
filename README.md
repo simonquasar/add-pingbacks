@@ -1,5 +1,5 @@
 # WordPress Manual Pingbacks Plugin
-**Version:** 1.2
+**Version:** 1.2.1
 **Last Updated:** 01 Feb 2025
 
 ### Plugin URL
@@ -27,4 +27,4 @@ This WordPress plugin adds an options page in the **Comments** menu, allowing ad
 
 ## Requirements
 - WordPress 5.0 or higher
-- Tested up to 6.6.2
+- Tested up to 6.7.1
