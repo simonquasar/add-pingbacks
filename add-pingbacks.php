@@ -3,7 +3,7 @@
  * Plugin Name:       Add Pingbacks
  * Plugin URI:        https://github.com/simonquasar/add-pingbacks/
  * Description:       Manually add a Pingback to any post.
- * Version:           1.2
+ * Version:           1.2.1
  * Requires at least: 5.0
  * Requires PHP:      7.4
  * Author:            simonquasar
@@ -124,7 +124,7 @@ function add_pingbacks_options_page() {
         <h2><?php esc_html_e('Add Pingback URLs', 'addPingbacks'); ?></h2>
         <span class="description">
             <?php esc_html_e('Select a Post Type and a corresponding Post, then add the referral URL which points to your content. Play fair. ;)', 'addPingbacks'); ?><br/>
-            <?php printf(__('Plugin by <a href="%s" target="_blank" title="%s">%s</a>', 'addPingbacks'), esc_url('http://simonquasar.net'), esc_attr__('simonquasar', 'addPingbacks'), esc_html__('simonquasar', 'addPingbacks')); ?>
+            <?php printf(__('Plugin by <a href="%s" target="_blank" title="%s">%s</a>', 'addPingbacks'), esc_url('https://simonquasar.net'), esc_attr__('simonquasar', 'addPingbacks'), esc_html__('simonquasar', 'addPingbacks')); ?>
         </span>
 
         <form method="post" action="">
@@ -146,7 +146,7 @@ function add_pingbacks_options_page() {
                     <?php 
                     $authors = [
                         ['name' => 'author_name', 'label' => __('Site Title / Page Name', 'addPingbacks'), 'default' => ''],
-                        ['name' => 'author_url', 'label' => __('Link', 'addPingbacks'), 'default' => 'http://']
+                        ['name' => 'author_url', 'label' => __('Link', 'addPingbacks'), 'default' => 'https://']
                     ];
 
                     foreach ($authors as $author) {
