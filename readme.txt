@@ -1,14 +1,17 @@
 === Add Pingbacks ===
 Contributors: simonquasar
 Tags: pingbacks, manual pingbacks, comments, linkbacks, custom post types
+Donate link: https://www.paypal.me/simonquasar
 Requires at least: 5.0
 Tested up to: 6.6.2
 Requires PHP: 7.4
-Stable Tag: 1.2
+Stable tag: 1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Manually add pingbacks to any post, page, or custom post type in WordPress.
+
+== Description ==
 
 Add Pingbacks is a WordPress plugin that allows you to manually create pingbacks for your posts, pages, and custom post types. This is particularly useful when you want to:
 
