@@ -1,13 +1,13 @@
 <?php
 /*
  * Plugin Name:       Add Pingbacks
- * Plugin URI:        https://simonquasar.net/add-pingbacks
+ * Plugin URI:        https://github.com/simonquasar/add-pingbacks/
  * Description:       Manually add a Pingback to any post.
  * Version:           1.2
  * Requires at least: 5.0
  * Requires PHP:      7.4
  * Author:            simonquasar
- * Author URI:        https://simonquasar.net/
+ * Author URI:        https://www.simonquasar.net/
  * License:           GPL v2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       add-pingbacks
@@ -35,13 +35,13 @@ function add_pingbacks_validate_input($input) {
 }
 
 function add_pingbacks_options_link() {
-    add_submenu_page('edit-comments.php', 'Add Pingbacks', 'Add Pingbacks', 'manage_options', 'addPingbacks', 'add_pingbacks_options_page', 'dashicons-admin-comments');
+    add_submenu_page('edit-comments.php', 'Add Pingbacks', 'Add Pingbacks', 'manage_options', 'addPingbacks', 'add_pingbacks_options_page');
 }
 
 function add_pingbacks_enqueue_scripts($hook) {
-    if ('comments_page_addPingbacks' !== $hook) {
+    if ('edit-comments_page_addPingbacks' !== $hook) {
         return;
-    }
+    }    
     
     wp_enqueue_script(
         'add-pingbacks-js',
