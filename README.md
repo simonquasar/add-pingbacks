@@ -1,3 +1,4 @@
+![ImagePreview](https://repository-images.githubusercontent.com/882242461/5bce947a-e805-4cef-bd1a-ef10a9901040)
 # WordPress Manual Pingbacks Plugin
 **Version:** 1.2.1
 **Last Updated:** 01 Feb 2025
