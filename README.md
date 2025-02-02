@@ -5,6 +5,7 @@
 
 ![WordPress Plugin Version](https://img.shields.io/wordpress/plugin/v/add-pingbacks)
 ![WordPress Plugin Last Updated](https://img.shields.io/wordpress/plugin/last-updated/add-pingbacks)
+![GitHub tag check runs](https://img.shields.io/github/check-runs/simonquasar/add-pingbacks/1.2.1)
 ![GitHub Issues or Pull Requests](https://img.shields.io/github/issues/simonquasar/add-pingbacks)
 ![WordPress Plugin: Tested WP Version](https://img.shields.io/wordpress/plugin/tested/add-pingbacks)
 ![WordPress Plugin Downloads](https://img.shields.io/wordpress/plugin/dm/add-pingbacks)
@@ -27,3 +28,6 @@ This WordPress plugin adds an **Add Pingbacks** page under the **Comments** menu
 ## Requirements
 - WordPress 5.0 or higher
 - Tested up to 6.7.1
+
+## Development
+![GitHub commits since tagged version](https://img.shields.io/github/commits-since/simonquasar/add-pingbacks/1.2.1)
