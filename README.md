@@ -3,12 +3,13 @@
 **Version:** 1.2.1
 **Last Updated:** 01 Feb 2025
 
+![WordPress Plugin](https://img.shields.io/badge/Add%20Pingbacks-WP?logo=wordpress&label=WP%20Plugin)
 ![WordPress Plugin Version](https://img.shields.io/wordpress/plugin/v/add-pingbacks)
 ![WordPress Plugin Last Updated](https://img.shields.io/wordpress/plugin/last-updated/add-pingbacks)
-![GitHub tag check runs](https://img.shields.io/github/check-runs/simonquasar/add-pingbacks/1.2.1)
-![GitHub Issues or Pull Requests](https://img.shields.io/github/issues/simonquasar/add-pingbacks)
 ![WordPress Plugin: Tested WP Version](https://img.shields.io/wordpress/plugin/tested/add-pingbacks)
+![WordPress Plugin Active Installs](https://img.shields.io/wordpress/plugin/installs/add-pingbacks)
 ![WordPress Plugin Downloads](https://img.shields.io/wordpress/plugin/dm/add-pingbacks)
+![GitHub Issues or Pull Requests](https://img.shields.io/github/issues/simonquasar/add-pingbacks)
 
 ### Plugin URL
 - https://wordpress.org/plugins/add-pingbacks/
