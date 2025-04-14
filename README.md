@@ -6,10 +6,10 @@
 ![WordPress Plugin](https://img.shields.io/badge/Add%20Pingbacks-WP?logo=wordpress&label=WP%20Plugin)
 ![WordPress Plugin Version](https://img.shields.io/wordpress/plugin/v/add-pingbacks)
 ![WordPress Plugin Last Updated](https://img.shields.io/wordpress/plugin/last-updated/add-pingbacks)
+![WordPress Plugin Downloads](https://img.shields.io/wordpress/plugin/dt/add-pingbacks)
 ![WordPress Plugin Stars](https://img.shields.io/wordpress/plugin/stars/add-pingbacks)
-![WordPress Plugin: Tested WP Version](https://img.shields.io/wordpress/plugin/tested/add-pingbacks)
-![WordPress Plugin Active Installs](https://img.shields.io/wordpress/plugin/installs/add-pingbacks)
 ![WordPress Plugin Downloads](https://img.shields.io/wordpress/plugin/dm/add-pingbacks)
+![WordPress Plugin: Tested WP Version](https://img.shields.io/wordpress/plugin/tested/add-pingbacks)
 
 ### Plugin URL
 - https://wordpress.org/plugins/add-pingbacks/
