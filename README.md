@@ -1,7 +1,7 @@
 ![ImagePreview](https://repository-images.githubusercontent.com/882242461/5bce947a-e805-4cef-bd1a-ef10a9901040)
 # WordPress Manual Pingbacks Plugin
 **Version:** 1.2.1
-**Last Updated:** 01 Feb 2025
+**Last Updated:** 01 Feb 2025 / **Last Checked:** 16 Apr 2025
 
 ![WordPress Plugin](https://img.shields.io/badge/Add%20Pingbacks-WP?logo=wordpress&label=WP%20Plugin)
 ![WordPress Plugin Version](https://img.shields.io/wordpress/plugin/v/add-pingbacks)
@@ -30,6 +30,10 @@ This WordPress plugin adds an **Add Pingbacks** page under the **Comments** menu
 ![WordPress Plugin Required PHP Version](https://img.shields.io/wordpress/plugin/required-php/add-pingbacks)
 ![WordPress Plugin: Required WP Version](https://img.shields.io/wordpress/plugin/wp-version/add-pingbacks)
 ![WordPress Plugin: Tested WP Version](https://img.shields.io/wordpress/plugin/tested/add-pingbacks)
+### Smoke test
+[![WP compatibility](https://plugintests.com/plugins/wporg/add-pingbacks/wp-badge.svg)](https://plugintests.com/plugins/wporg/add-pingbacks/latest)
+[![PHP compatibility](https://plugintests.com/plugins/wporg/add-pingbacks/php-badge.svg)](https://plugintests.com/plugins/wporg/add-pingbacks/latest)
+see also: https://plugintests.com/plugins/wporg/add-pingbacks/latest
 
 ## Development
 ![GitHub commits since tagged version](https://img.shields.io/github/commits-since/simonquasar/add-pingbacks/1.2.1)
