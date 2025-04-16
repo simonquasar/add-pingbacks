@@ -27,17 +27,13 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Runs a single command using the runners shell
-    - name: Send greeting
-      run: echo "Hello ${{ inputs.name }}"
+      # Runs a single command using the runners shell
+      - name: Send greeting
+        run: echo "Hello ${{ inputs.name }}"
 
-                  - name: Lint PHP
-  # You may pin to the exact commit or the version.
-  # uses: Firehed/lint-php-action@4e424397e74b38eae09f1cc32621c2f2a65e537a
-  uses: Firehed/lint-php-action@v1
-  with:
-    # Version of PHP
-    php-version: # default is latest
-    # Comma-separated list of file extensions to lint
-    file-extensions: # optional, default is php
-          
+      # Lint PHP code
+      - name: Lint PHP
+        uses: Firehed/lint-php-action@v1
+        with:
+          php-version: '8.1' # Specify a PHP version, e.g., 8.1
+          file-extensions: 'php,inc' # Specify file extensions to lint, e.g., php, inc
