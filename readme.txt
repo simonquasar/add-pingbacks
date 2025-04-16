@@ -20,7 +20,7 @@ Add Pingbacks is a WordPress plugin that allows you to manually create pingbacks
 
 = How It Works =
 
-1. Go to *Comments > Add Pingbacks*
+1. Go to **Comments > Add Pingbacks**
 2. Select from any custom post type the specific post you want to add the pingback to
 4. Enter the referrer's site title, URL and excerpt or content of the pingback
 5. Click "Add Pingback" to create the pingback
@@ -37,9 +37,9 @@ Add Pingbacks is a WordPress plugin that allows you to manually create pingbacks
 Tested up to WordPress 6.8
 Improved backward compatibility and incorporating better practices.
 
-*Added text domain support for translations and `esc_html__()` for translatable strings
-*Added proper checks and sanitizations to submission
-*Improved error handling and security checks in AJAX handler
+* Added text domain support for translations and `esc_html__()` for translatable strings
+* Added proper checks and sanitizations to submission
+* Improved error handling and security checks in AJAX handler
 
 = 1.2.1 =
 * Minimalistically refactored (one file only)
