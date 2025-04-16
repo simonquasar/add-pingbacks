@@ -20,7 +20,7 @@ This WordPress plugin adds an **Add Pingbacks** page under the **Comments** menu
 ## How to Use
 1. Go to the **Comments > Add Pingbacks** menu.
 2. Select the post type, then the desired post or page, add the referrer site name and URL, and the excerpt or custom content.
-4. Save your settings, and the referral link will be added to the selected post/page.
+4. Click "Add Pingback" and the referral link will be added to the selected post/page.
 
 ## Installation
 1. Download the zip file and extract the `add-pingbacks` directory.
