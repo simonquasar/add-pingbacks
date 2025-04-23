@@ -39,6 +39,7 @@ With this plugin, you can select any published post, media or page where the ref
 ### Smoke test
 [![WP compatibility](https://plugintests.com/plugins/wporg/add-pingbacks/wp-badge.svg)](https://plugintests.com/plugins/wporg/add-pingbacks/latest)
 [![PHP compatibility](https://plugintests.com/plugins/wporg/add-pingbacks/php-badge.svg)](https://plugintests.com/plugins/wporg/add-pingbacks/latest)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/simonquasar/add-pingbacks)
 
 see also: https://plugintests.com/plugins/wporg/add-pingbacks/latest
 
