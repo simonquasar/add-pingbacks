@@ -11,7 +11,7 @@
 ![WordPress Plugin Stars](https://img.shields.io/wordpress/plugin/stars/add-pingbacks)
 
 ### Plugin URL
-- https://wordpress.org/plugins/add-pingbacks/
+https://wordpress.org/plugins/add-pingbacks/
 
 ## Description
 This WordPress plugin adds an **Add Pingbacks** page under the **Comments** menu, allowing to add **referral links** aka **Pingbacks** associated with any type of posts. 
@@ -24,9 +24,11 @@ With this plugin, you can select any published post, media or page where the ref
 * Just one PHP file.
 
 ## How to Use
-1. Go to the **Comments > Add Pingbacks** menu.
+1. Go to the `Comments > Add Pingbacks` menu.
 2. Select the post type, then the desired post, add the referrer site name and URL, and the excerpt or custom content.
-4. Click "Add Pingback" and the referral link will be added to the selected post/page.
+4. Click `Add Pingback` and the referral link will be added to the selected post/page.
+
+![Comments → Add Pingbacks](https://raw.githubusercontent.com/simonquasar/add-pingbacks/main/admin-1-comments-add-pingbacks.png)
 
 ## Installation
 1. Download the zip file and extract the `add-pingbacks` directory.
