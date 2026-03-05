@@ -4,14 +4,14 @@
  *
  * @package           AddPingbacks
  * @author            simonquasar
- * @copyright         2025 simonquasar
+ * @copyright         2026 simonquasar
  * @license           GPL-2.0-or-later
  *
  * @wordpress-plugin
  * Plugin Name:       Add Pingbacks
  * Plugin URI:        https://github.com/simonquasar/add-pingbacks
  * Description:       Manually add a Pingback to any post.
- * Version:           1.2.2
+ * Version:           1.2.3
  * Requires at least: 5.0
  * Requires PHP:      5.6
  * Author:            simonquasar
@@ -41,14 +41,14 @@ function render_pingbacks_page() {
     if (isset($_POST['submit_pingback']) && check_admin_referer('add_pingback_action', 'add_pingback_nonce')) {
             $post_id = filter_var($_POST['post_id'], FILTER_VALIDATE_INT);
             $url = esc_url_raw($_POST['url']);
+            $author = sanitize_text_field($_POST['author']);
             $content = sanitize_textarea_field($_POST['content']);
     
-
             if ($post_id && $url && $content) {
                 $host = parse_url($url, PHP_URL_HOST);
                 wp_insert_comment(array(
                     'comment_post_ID' => $post_id,
-                    'comment_author' => $host ? $host : '',  
+                    'comment_author' => $author ? $author : $host,  
                     'comment_author_url' => $url,
                     'comment_content' => $content,
                     'comment_type' => 'pingback',
@@ -71,9 +71,9 @@ function render_pingbacks_page() {
                     </td>
                 </tr>
                 <tr>
-                    <th><label for="post-type">Post Type:</label></th>
+                    <th><label for="post-type">Post Type <span style="color:red">*</span></label></th>
                     <td>
-                        <select id="post-type">
+                        <select id="post-type" style="max-width: 95%;">
                             <?php 
                             $types = get_post_types(array('public' => true), 'objects');
                             foreach ($types as $type) {
@@ -84,9 +84,9 @@ function render_pingbacks_page() {
                     </td>
                 </tr>
                 <tr>
-                    <th><label for="posts">Post:</label></th>
+                    <th><label for="posts">Post <span style="color:red">*</span></label></th>
                     <td>
-                        <select name="post_id" id="posts" required>
+                        <select name="post_id" id="posts" style="max-width: 95%;" required>
                             <?php
                             $posts = get_posts(array('post_type' => 'post', 'posts_per_page' => -1));
                             foreach ($posts as $post) {
@@ -97,11 +97,15 @@ function render_pingbacks_page() {
                     </td>
                 </tr>
                 <tr>
-                    <th>URL:</th>
+                    <th>URL <span style="color:red">*</span></th>
                     <td><input type="url" name="url" class="regular-text" style="width: 95%;" placeholder="https://example.com/your-article" required></td>
                 </tr>
                 <tr>
-                    <th>Content:</th>
+                    <th>Author</th>
+                    <td><input type="text" name="author" class="regular-text" style="width: 95%;" placeholder="Author (optional)"></td>
+                </tr>
+                <tr>
+                    <th>Content <span style="color:red">*</span></th>
                     <td><textarea name="content" style="width: 95%; height: 200px;" placeholder="Enter any referring content here..." required></textarea></td>
                 </tr>
 				<tr>

@@ -2,9 +2,9 @@
 Contributors: simonquasar
 Tags: pingbacks, manual pingbacks, comments, linkbacks, custom post types
 Requires at least: 5.0
-Tested up to: 6.8
+Tested up to: 7.0-beta2
 Requires PHP: 5.6
-Stable tag: 1.2.2
+Stable tag: 1.2.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Manually add pingbacks to any post, page, or custom post type in WordPress.
@@ -32,6 +32,10 @@ Add Pingbacks is a WordPress plugin that allows you to manually create pingbacks
 3. Navigate to `Comments > Add Pingbacks` to start adding pingbacks
 
 == Changelog ==
+
+= 1.2.3 = 
+Tested up to WordPress 7.0 Beta 2
+* Added field for custom Author name (URL's TLD will be used as fallback)
 
 = 1.2.2 = 
 Tested up to WordPress 6.8

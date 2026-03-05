@@ -1,7 +1,8 @@
 ![ImagePreview](https://repository-images.githubusercontent.com/882242461/5bce947a-e805-4cef-bd1a-ef10a9901040)
 # WordPress Manual Pingbacks Plugin
-**Version:** 1.2.2
-**Last Updated:** 16 Apr 2025
+**Version:** 1.2.3
+**Last Updated:** 5 Mar 2026
+**WordPress 7.0 ready**
 
 ![WordPress Plugin: Tested WP Version](https://img.shields.io/wordpress/plugin/tested/add-pingbacks?logo=wordpress&label=WP%20Plugin)
 ![WordPress Plugin Version](https://img.shields.io/wordpress/plugin/v/add-pingbacks)
@@ -21,6 +22,7 @@ With this plugin, you can select any published post, media or page where the ref
 
 * Backwards compatible (WP 5.0+).
 * Less than 150 lines of code.
+* Page speed impact: insignificant!
 * Just one PHP file.
 
 ## How to Use
@@ -46,5 +48,5 @@ With this plugin, you can select any published post, media or page where the ref
 see also: https://plugintests.com/plugins/wporg/add-pingbacks/latest
 
 ## Development
-![GitHub commits since tagged version](https://img.shields.io/github/commits-since/simonquasar/add-pingbacks/1.2.2)
+![GitHub commits since tagged version](https://img.shields.io/github/commits-since/simonquasar/add-pingbacks/1.2.3)
 Feel free to open issues for bugs and feature requests.
